@@ -57,8 +57,8 @@ def update_system():
 fig, ax = plt.subplots(figsize=(16, 16))  # Larger figure南海
 
 # Zoom to focus on inner Solar System (up to Mars) and Earth-Moon system
-ax.set_xlim(-1.6e11, 1.6e11)  # ~1.07 AU to include Mars
-ax.set_ylim(-1.6e11, 1.6e11)
+ax.set_xlim(-1.e12, 1.e12)  # ~1.07 AU to include Mars
+ax.set_ylim(-1.e12, 1.e12)
 ax.set_xlabel('X (m)')
 ax.set_ylabel('Y (m)')
 ax.set_title('N-Body Simulation: Solar System (10 Years, Earth-Moon Focus)')
@@ -68,7 +68,7 @@ ax.set_aspect('equal')
 # Plot bodies, trajectories, and labels
 plots = [ax.plot([], [], 'o', color=body['color'], ms=body['size'], label=body['name'])[0] for body in bodies]
 trails = [ax.plot([], [], '-', color=body['color'], alpha=0.5)[0] for body in bodies]
-labels = [ax.text(0, 0, body['name'], color=body['color'], fontsize=8) for body in bodies]
+labels = [ax.text(0, 0, body['name'], color=body['color'], fontsize=15) for body in bodies]
 
 # Add Lagrange points and LEO as fixed dashed circles
 earth_idx = 3  # Index of Earth
@@ -110,11 +110,11 @@ def animate(i):
     return plots + trails + labels + [l1_circle, l2_circle, leo_circle]
 
 # Create animation
-ani = FuncAnimation(fig, animate, frames=n_steps//100, init_func=init, blit=True, interval=50)
+ani = FuncAnimation(fig, animate, frames=n_steps//100, init_func=init, blit=True, interval=10)
 ax.legend()
 
 # Save as GIF
-writer = PillowWriter(fps=20)
+writer = PillowWriter(fps=10)
 ani.save('solar_system_earth_moon_lagrange.gif', writer=writer)
 print("GIF saved as 'solar_system_earth_moon_lagrange.gif'")
 plt.close()
