@@ -17,6 +17,7 @@ The simulation uses the Euler integration method with a 1-day time step for simp
   - **L2**: ~445,504 km from Earth (~116% of Earth-Moon distance), purple dashed circle.
 - **Visualization**: Dynamic labels for each body, scaled marker sizes (Sun largest, Moon smallest), and trajectory trails. Output is a GIF (`solar_system_earth_moon_lagrange.gif`) with 20 fps.
 - **Codebase**: Leverages NumPy for numerical computations, Matplotlib for plotting, and Pillow for GIF generation.
+![solar_system_earth_moon_lagrange](https://github.com/user-attachments/assets/010597ff-0324-4397-ad60-91c630eb96d2)
 
 ## Requirements
 
