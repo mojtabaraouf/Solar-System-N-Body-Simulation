@@ -4,7 +4,7 @@
 
 This Python script simulates the gravitational dynamics of the Solar System, including the Sun, Mercury, Venus, Earth, Moon, Mars, Jupiter, and Saturn, using a direct N-body approach with Newtonian gravity. The simulation runs for 10 years, capturing multiple orbits of inner planets and partial orbits of outer planets. The Earth-Moon system is emphasized, with Low Earth Orbit (LEO) and Earth-Moon Lagrange points (L1, L2) plotted as fixed dashed circles. Each body is labeled dynamically, and trajectories are visualized. The output is a GIF animation showing the orbital dynamics, suitable for astrophysical visualization and analysis.
 
-The simulation uses the Euler integration method with a 1-day time step for simplicity, implemented with NumPy for calculations and Matplotlib/Pillow for visualization. The code is designed for educational purposes and can be extended with more sophisticated integrators (e.g., Verlet) or frameworks like AMUSE for long-term simulations.
+The simulation uses the Euler integration method with a 1-day time step for simplicity, implemented with NumPy for calculations and Matplotlib/Pillow for visualization. The code is designed for educational purposes and can be extended with more sophisticated integrators (e.g., Verlet) or frameworks for long-term simulations.
 
 ## Features
 
@@ -72,7 +72,7 @@ The simulation uses the Euler integration method with a 1-day time step for simp
 - **Duration**: Modify `t_max` (e.g., `t_max = 30 * 365.25 * 24 * 3600` for 30 years) to see more of Saturn’s orbit, but expect increased computation time and GIF size.
 - **Time Step**: Reduce `dt` (e.g., 3600 s) for higher resolution of Moon’s orbit, or increase for faster computation.
 - **Labels**: Adjust label offset (`1e10` in `animate`) or fontsize for readability.
-- **Advanced Integration**: Replace Euler with Velocity Verlet or use AMUSE’s `Huayno` solver for better accuracy:
+- **Advanced Integration**: Replace Euler with Velocity Verlet or use `Huayno` solver for better accuracy:
   ```python
   from amuse.lab import *
   bodies = Particles(8)
@@ -86,10 +86,10 @@ The simulation uses the Euler integration method with a 1-day time step for simp
 ## Notes for Long-Term Simulations (e.g., 4.5 Gyr)
 
 Simulating 4.5 billion years is computationally intensive (~1.65e9 steps at 1-day dt) and requires:
-- **Symplectic Integrator**: Use Verlet or AMUSE’s `Huayno`/`Hermite` for stability.
+- **Symplectic Integrator**: Use Verlet or `Huayno`/`Hermite` for stability.
 - **HPC**: Run on a cluster (e.g., Snellius) to handle computation.
 - **Sparse Sampling**: Save frames every ~10,000 years for a ~100-200 frame GIF.
-- **Physical Effects**: Incorporate stellar evolution (Sun’s mass loss) or tidal effects using AMUSE.
+- **Physical Effects**: Incorporate stellar evolution (Sun’s mass loss) or tidal effects.
 
 ## Example Output
 
