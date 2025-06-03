@@ -117,4 +117,4 @@ This project is licensed under the MIT License.
 
 For questions or suggestions, contact raouf@strw.leidenuniv.nl or open an issue on the repository.
 
-*Last updated: June 3, 2025*
+*Last updated: June 3, 2024*
